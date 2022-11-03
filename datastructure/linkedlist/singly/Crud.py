@@ -15,11 +15,11 @@ def add(head_node, *nodes):
             head_node = node
             continue
 
-        curr = head_node
-        while curr.next is not None:
-            curr = curr.next
+        last_node = head_node
+        while last_node.next is not None:
+            last_node = last_node.next
 
-        curr.next = node
+        last_node.next = node
 
 
 def add_values(head_node, *values):
