@@ -1,38 +1,38 @@
 class Stack:
 
     def __init__(self, size):
-        self.top = -1
-        self.size = size
-        self.arr = [None] * size
+        self.__top = -1
+        self.__size = size
+        self.__arr = [None] * size
 
     def push(self, value):
 
-        if self.top + 1 == self.size:
-            raise Exception(f"Stack Overflow! Defined size reached: {self.size}")
+        if self.__top + 1 == self.__size:
+            raise Exception(f"Stack Overflow! Defined size reached: {self.__size}")
 
-        self.top += 1
-        self.arr[self.top] = value
+        self.__top += 1
+        self.__arr[self.__top] = value
 
     def pop(self):
 
-        if self.top == -1:
+        if self.__top == -1:
             raise Exception(f"Stack Underflow! Empty stack.")
 
-        temp = self.arr[self.top]
-        self.arr[self.top] = None
-        self.top -= 1
+        temp = self.__arr[self.__top]
+        self.__arr[self.__top] = None
+        self.__top -= 1
         return temp
 
     def peek(self):
 
-        if self.top == -1:
+        if self.__top == -1:
             raise Exception(f"Stack Underflow! Empty stack.")
 
-        return self.arr[self.top]
+        return self.__arr[self.__top]
 
     def show(self):
 
-        for i in range(self.top, -1, -1):
-            print(self.arr[i], end=" ")
+        for i in range(self.__top, -1, -1):
+            print(self.__arr[i], end=" ")
         else:
             print("")
