@@ -1,7 +1,8 @@
-from QueueByArray import Queue
+# from QueueByArray import Queue
+from QueueByLinkedList import Queue
 
-
-q = Queue(5)
+# q = Queue(5)
+q = Queue()
 
 q.enqueue(1)
 q.enqueue(2)
@@ -16,3 +17,5 @@ print(q.dequeue())
 print(q.dequeue())
 print(q.dequeue())
 print(q.dequeue())
+
+q.show()
