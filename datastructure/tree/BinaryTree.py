@@ -9,7 +9,7 @@ class BinaryTree:
     def __init__(self):
         self.root = None
 
-    def add(self, val):
+    def add(self, val):  # this method is more applicable to binary search tree
         node = Node(val)
 
         if self.root is None:
@@ -31,12 +31,38 @@ class BinaryTree:
                         parent.right = node
                         break
 
-    def traversal(self):
-        self.__pre_order_traversal(self.root)
+    def insert(self, val):
+        new_node = Node(val)
+
+        if self.root is None:
+            self.root = new_node
+            return
+
+        q = [self.root]
+
+        while len(q) > 0:
+            node = q.pop(0)
+
+            if node.left is None:
+                node.left = new_node
+                break
+            else:
+                q.append(node.left)
+
+            if node.right is None:
+                node.right = new_node
+                break
+            else:
+                q.append(node.right)
+
+    def traversal(self, traversal_type="PRE"):
+        if traversal_type == "PRE":
+            self.__pre_order_traversal(self.root)
+        elif traversal_type == "IN":
+            self.__in_order_traversal(self.root)
+        elif traversal_type == "POST":
+            self.__post_order_traversal(self.root)
         print("")
-        self.__in_order_traversal(self.root)
-        print("")
-        self.__post_order_traversal(self.root)
 
     def __pre_order_traversal(self, current):
         if current is not None:
